@@ -20,6 +20,4 @@ npm run build
 
 ## Credits
 
-> [Vue](http://vuejs.github.io/vue-loader)
-> [Vue Axios](https://www.npmjs.com/package/vue-axios)
-> [Khoerodin](https://khoerodin.id)
+[Vue](http://vuejs.github.io/vue-loader), [Vue Axios](https://www.npmjs.com/package/vue-axios) and [Khoerodin](https://khoerodin.id)
