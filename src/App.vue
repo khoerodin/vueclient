@@ -24,8 +24,8 @@ export default {
   data () {
     return {
       login: {
-        email: 'leuschke.courtney@example.org',
-        password: 'secret'
+        email: '',
+        password: ''
       }
     }
   },
