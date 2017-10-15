@@ -17,7 +17,7 @@
 
 <script>
 import axios from 'axios';
-import {loginUrl} from './config';
+import {loginUrl, userUrl, getHeader} from './config';
 import {clientId, clientSecret} from './env';
 export default {
   name: 'app',
@@ -40,11 +40,23 @@ export default {
         scope: ''
       }
 
+      const authUser = {}
       this.$http.post(loginUrl, postData)
-      .then(function (response) {
-        console.log(response);
+      .then(response => {
+        if ( response.status === 200 ) {
+          authUser.access_token = response.data.access_token
+          authUser.refresh_token = response.data.refresh_token
+          window.localStorage.setItem('authUser', JSON.stringify(authUser))
+          this.$http.get(userUrl, {headers: getHeader()})
+          .then(response => {
+            authUser.email = response.data.email
+            authUser.name = response.data.name
+            window.localStorage.setItem('authUser', JSON.stringify(authUser))
+            this.$router.push({name: 'dashboard'})
+          })
+        }
       })
-      .catch(function (error) {
+      .catch(error => {
         console.log(error);
       })
     }
