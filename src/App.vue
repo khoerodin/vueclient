@@ -8,7 +8,7 @@
       <hr>
       Password
       <div>
-        <input type="text" v-model="login.password">
+        <input type="password" v-model="login.password">
       </div>
       <button>Login</button>
     </form>
@@ -20,7 +20,6 @@ import axios from 'axios';
 import {loginUrl, userUrl, getHeader} from './config';
 import {clientId, clientSecret} from './env';
 export default {
-  name: 'app',
   data () {
     return {
       login: {
