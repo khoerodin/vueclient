@@ -11,7 +11,7 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
-# serve my [REST API with OAuth2](https://github.com/khoerodin/restapiauth) project
+# serve my REST API with OAuth2 project
 php artisan serve
 
 # build for production with minification
