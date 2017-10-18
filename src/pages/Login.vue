@@ -18,7 +18,13 @@
 <script>
 import {loginUrl, userUrl, getHeader} from './../config';
 import {clientId, clientSecret} from './../env';
+import {mapState} from 'vuex'
 export default {
+  computed: {
+      ...mapState({
+          userStore: state => state.userStore
+      })
+  },
   data () {
     return {
       login: {
@@ -50,6 +56,7 @@ export default {
             authUser.email = response.data.email
             authUser.name = response.data.name
             window.localStorage.setItem('authUser', JSON.stringify(authUser))
+            this.$store.dispatch('setUserObject', authUser)
             this.$router.push({name: 'dashboard'})
           })
         }

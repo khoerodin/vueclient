@@ -1,5 +1,5 @@
  <template>
-    <div>
+    <div v-if="userStore.authUser !== null && userStore.authUser.access_token">
         <ul>
             <li>Menu 1</li>
             <li>Menu 2</li>
@@ -11,8 +11,13 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex'
     export default {
-
+        computed: {
+            ...mapState({
+                userStore: state => state.userStore
+            })
+        }
     }
 </script>
 
