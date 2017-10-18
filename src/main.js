@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import store from './store'
 
 import App from './App.vue'
 import LoginPage from './pages/Login.vue'
@@ -35,5 +36,5 @@ router.beforeEach((to, from, next) => {
 })
 
 new Vue({
-    router
+    router, store
 }).$mount('#app')
